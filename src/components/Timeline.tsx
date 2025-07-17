@@ -16,50 +16,50 @@ function Timeline() {
             className="vertical-timeline-element--work"
             contentStyle={{ background: 'white', color: 'rgb(39, 40, 34)' }}
             contentArrowStyle={{ borderRight: '7px solid  white' }}
-            date="2022 - present"
+            date="2024 - present"
             iconStyle={{ background: '#5000ca', color: 'rgb(39, 40, 34)' }}
             icon={<FontAwesomeIcon icon={faBriefcase} />}
           >
-            <h3 className="vertical-timeline-element-title">Technology Consultant</h3>
-            <h4 className="vertical-timeline-element-subtitle">Dallas, TX</h4>
+            <h3 className="vertical-timeline-element-title">Senior Software Engineer</h3>
+            <h4 className="vertical-timeline-element-subtitle">Evolve Bank & Trust | Memphis, TN</h4>
             <p>
-              Full-stack Web Development, GenAI/LLM, Project Management, Business Development
+              Technical leadership in backend development, system architecture design, and API development. Led cross-functional teams in delivering scalable banking solutions.
             </p>
           </VerticalTimelineElement>
           <VerticalTimelineElement
             className="vertical-timeline-element--work"
-            date="2020 - 2022"
+            date="2022 - 2024"
             iconStyle={{ background: '#5000ca', color: 'rgb(39, 40, 34)' }}
             icon={<FontAwesomeIcon icon={faBriefcase} />}
           >
-            <h3 className="vertical-timeline-element-title">Full Stack Engineer</h3>
-            <h4 className="vertical-timeline-element-subtitle">Laie, HI</h4>
+            <h3 className="vertical-timeline-element-title">Software Engineer</h3>
+            <h4 className="vertical-timeline-element-subtitle">Evolve Bank & Trust | Memphis, TN</h4>
             <p>
-              Frontend Development, Backend Development, User Experience, Team Leading
+              Full-stack development, microservices architecture, database optimization, and DevOps implementation. Built robust financial applications and payment processing systems.
             </p>
           </VerticalTimelineElement>
           <VerticalTimelineElement
             className="vertical-timeline-element--work"
-            date="2021 - 2021"
+            date="2021 - 2022"
             iconStyle={{ background: '#5000ca', color: 'rgb(39, 40, 34)' }}
             icon={<FontAwesomeIcon icon={faBriefcase} />}
           >
-            <h3 className="vertical-timeline-element-title">Staff Engineer Intern</h3>
-            <h4 className="vertical-timeline-element-subtitle">Laie, HI</h4>
+            <h3 className="vertical-timeline-element-title">Junior Software Engineer</h3>
+            <h4 className="vertical-timeline-element-subtitle">Evolve Bank & Trust | Memphis, TN</h4>
             <p>
-              Full-stack Development, API Development, User Experience
+              Frontend and backend development, API integration, automated testing, and agile development practices in the financial services sector.
             </p>
           </VerticalTimelineElement>
           <VerticalTimelineElement
             className="vertical-timeline-element--work"
-            date="2020 - 2020"
+            date="2020 - 2021"
             iconStyle={{ background: '#5000ca', color: 'rgb(39, 40, 34)' }}
             icon={<FontAwesomeIcon icon={faBriefcase} />}
           >
-            <h3 className="vertical-timeline-element-title">Data Analyst Intern</h3>
-            <h4 className="vertical-timeline-element-subtitle">Tokyo, Japan</h4>
+            <h3 className="vertical-timeline-element-title">Software Developer Intern</h3>
+            <h4 className="vertical-timeline-element-subtitle">Evolve Bank & Trust | Memphis, TN</h4>
             <p>
-              Automation, Data Governance, Statistical Analysis
+              Software development internship focusing on web applications, database management, and learning industry best practices in banking technology.
             </p>
           </VerticalTimelineElement>
         </VerticalTimeline>
