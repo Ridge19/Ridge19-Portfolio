@@ -6,6 +6,8 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import TextField from '@mui/material/TextField';
+import Snackbar from '@mui/material/Snackbar';
+import Alert from '@mui/material/Alert';
 import DownloadIcon from '@mui/icons-material/Download';
 import DescriptionIcon from '@mui/icons-material/Description';
 import '../assets/styles/Resume.scss';
@@ -14,6 +16,9 @@ function Resume() {
   const [open, setOpen] = useState(false);
   const [userInput, setUserInput] = useState('');
   const [attempts, setAttempts] = useState(0);
+  const [toastOpen, setToastOpen] = useState(false);
+  const [toastMessage, setToastMessage] = useState('');
+  const [toastSeverity, setToastSeverity] = useState<'success' | 'error' | 'warning'>('error');
 
   const handleDownloadClick = () => {
     setOpen(true);
@@ -22,6 +27,16 @@ function Resume() {
   const handleClose = () => {
     setOpen(false);
     setUserInput('');
+  };
+
+  const showToast = (message: string, severity: 'success' | 'error' | 'warning' = 'error') => {
+    setToastMessage(message);
+    setToastSeverity(severity);
+    setToastOpen(true);
+  };
+
+  const handleToastClose = () => {
+    setToastOpen(false);
   };
 
   const handleConfirmDownload = () => {
@@ -40,15 +55,18 @@ function Resume() {
         setOpen(false);
         setUserInput('');
         setAttempts(0);
+        showToast('Resume download started successfully!', 'success');
       }, 1000);
     } else {
       setAttempts(prev => prev + 1);
       setUserInput('');
       
       if (attempts >= 2) {
-        alert('Too many failed attempts. Please refresh the page to try again.');
+        showToast('Too many failed attempts. Please refresh the page to try again.', 'error');
         setOpen(false);
         setAttempts(0);
+      } else {
+        showToast(`Incorrect input. ${2 - attempts} attempts remaining.`, 'warning');
       }
     }
   };
@@ -116,6 +134,23 @@ function Resume() {
             </Button>
           </DialogActions>
         </Dialog>
+
+        {/* Toast Notifications */}
+        <Snackbar 
+          open={toastOpen} 
+          autoHideDuration={4000} 
+          onClose={handleToastClose}
+          anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+        >
+          <Alert 
+            onClose={handleToastClose} 
+            severity={toastSeverity} 
+            sx={{ width: '100%' }}
+            variant="filled"
+          >
+            {toastMessage}
+          </Alert>
+        </Snackbar>
       </div>
     </div>
   );
