@@ -79,7 +79,7 @@ function Expertise() {
                 <div className="skill">
                     <FontAwesomeIcon icon={faPython} size="3x"/>
                     <h3>Robotics and Engineering</h3>
-                    <p>Contributing to the design, development, and integration of software systems for RMIT’s Mars Rover project. Focused on robotics, automation, and control systems, with hands-on experience in ROS, computer vision, and autonomous navigation. Collaborating with multidisciplinary teams to build innovative solutions for international rover competitions while enhancing skills in algorithm development, system optimisation, and team-based engineering.</p>
+                    <p>Contributing to the design, development, and integration of software systems for RMIT’s Rover Team. Focused on robotics, automation, and control systems, with hands-on experience in ROS, computer vision, and autonomous navigation. Collaborating with multidisciplinary teams to build innovative solutions for international rover competitions while enhancing skills in algorithm development, system optimisation, and team-based engineering.</p>
                     <div className="flex-chips">
                         <span className="chip-title">Tech stack:</span>
                         {labelsThird.map((label, index) => (
