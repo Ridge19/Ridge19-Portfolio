@@ -1,18 +1,56 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import TextField from '@mui/material/TextField';
 import DownloadIcon from '@mui/icons-material/Download';
 import DescriptionIcon from '@mui/icons-material/Description';
 import '../assets/styles/Resume.scss';
 
 function Resume() {
-  const handleDownload = () => {
-    const link = document.createElement('a');
-    link.href = '/Ridge_Tagala_Resume.pdf';
-    link.download = 'Ridge_Tagala_Resume.pdf';
-    link.target = '_blank';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+  const [open, setOpen] = useState(false);
+  const [userInput, setUserInput] = useState('');
+  const [attempts, setAttempts] = useState(0);
+
+  const handleDownloadClick = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+    setUserInput('');
+  };
+
+  const handleConfirmDownload = () => {
+    // Simple verification: ask user to type "DOWNLOAD"
+    if (userInput.toLowerCase() === 'download') {
+      // Add a small delay to deter bots
+      setTimeout(() => {
+        const link = document.createElement('a');
+        link.href = '/Ridge_Tagala_Resume.pdf';
+        link.download = 'Ridge_Tagala_Resume.pdf';
+        link.target = '_blank';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        
+        setOpen(false);
+        setUserInput('');
+        setAttempts(0);
+      }, 1000);
+    } else {
+      setAttempts(prev => prev + 1);
+      setUserInput('');
+      
+      if (attempts >= 2) {
+        alert('Too many failed attempts. Please refresh the page to try again.');
+        setOpen(false);
+        setAttempts(0);
+      }
+    }
   };
 
   return (
@@ -34,13 +72,50 @@ function Resume() {
               variant="contained" 
               size="large"
               startIcon={<DownloadIcon />} 
-              onClick={handleDownload}
+              onClick={handleDownloadClick}
               className="download-button"
             >
               Download Resume (PDF)
             </Button>
           </div>
         </div>
+
+        {/* Bot Protection Dialog */}
+        <Dialog open={open} onClose={handleClose} maxWidth="sm" fullWidth>
+          <DialogTitle>Verify Human Access</DialogTitle>
+          <DialogContent>
+            <DialogContentText>
+              To download my resume, please type the word "DOWNLOAD" below. This helps prevent automated downloads.
+              {attempts > 0 && (
+                <span style={{ color: 'red', display: 'block', marginTop: '10px' }}>
+                  Incorrect input. {3 - attempts} attempts remaining.
+                </span>
+              )}
+            </DialogContentText>
+            <TextField
+              autoFocus
+              margin="dense"
+              label="Type DOWNLOAD"
+              fullWidth
+              variant="outlined"
+              value={userInput}
+              onChange={(e) => setUserInput(e.target.value)}
+              onKeyPress={(e) => {
+                if (e.key === 'Enter') {
+                  handleConfirmDownload();
+                }
+              }}
+              error={attempts > 0}
+              sx={{ mt: 2 }}
+            />
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={handleClose}>Cancel</Button>
+            <Button onClick={handleConfirmDownload} variant="contained">
+              Confirm Download
+            </Button>
+          </DialogActions>
+        </Dialog>
       </div>
     </div>
   );
