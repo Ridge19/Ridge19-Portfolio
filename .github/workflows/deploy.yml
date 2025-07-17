@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   deploy:
@@ -20,23 +20,15 @@ jobs:
       
       - name: Clean npm cache
         run: npm cache clean --force
-        working-directory: ./react-portfolio-template
 
       - name: Install dependencies
         run: npm install
-        working-directory: ./react-portfolio-template
-
-      - name: Make vite executable
-        run: chmod +x node_modules/.bin/vite
-        working-directory: ./react-portfolio-template
 
       - name: Build project
         run: npm run build
-        working-directory: ./react-portfolio-template
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
-          personal_token: ${{ secrets.PERSONAL_TOKEN }}
-          publish_dir: ./react-portfolio-template/dist
-          publish_branch: gh-pages
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
