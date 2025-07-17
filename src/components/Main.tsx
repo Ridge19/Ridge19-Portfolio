@@ -17,7 +17,7 @@ function Main() {
             <a href="https://www.linkedin.com/in/ridge-tagala/" target="_blank" rel="noreferrer"><LinkedInIcon/></a>
           </div>
           <h1>Ridge Tagala</h1>
-          <p>Senior Software Engineer</p>
+          <p>Software Engineer</p>
 
           <div className="mobile_social_icons">
             <a href="https://github.com/Ridge19" target="_blank" rel="noreferrer"><GitHubIcon/></a>
