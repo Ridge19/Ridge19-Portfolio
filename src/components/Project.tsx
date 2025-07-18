@@ -70,7 +70,7 @@ function Project() {
             <img src={mock17} className="zoom" alt="Social Media Analyser thumbnail" width="100%" />
           </a>
           <h2>Social Media Analyser</h2>
-          <p>Analyzes Twitter data using sentiment analysis and natural language processing techniques with Python and NLTK.</p>
+          <p>Developed a Java application with a JavaFX GUI that analyzes social media posts read from text files using NLP and sentiment analysis techniques. Integrated JDBC for database storage and retrieval of results, providing visual sentiment distribution insights within the interface.</p>
         </div>
 
         <div className="project">
