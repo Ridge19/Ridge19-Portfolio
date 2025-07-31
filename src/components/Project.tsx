@@ -23,6 +23,13 @@ function Project() {
           </a>
           <h2>Data Science Portfolio</h2>
           <p>Includes Python notebooks covering machine learning models, statistical analysis, and data wrangling using libraries like Pandas, NumPy, and Scikit-learn.</p>
+          <div className="project-tech">
+            <span className="tech-tag">Python</span>
+            <span className="tech-tag">Pandas</span>
+            <span className="tech-tag">NumPy</span>
+            <span className="tech-tag">Scikit-learn</span>
+            <span className="tech-tag">Jupyter</span>
+          </div>
         </div>
 
         <div className="project">
@@ -31,6 +38,11 @@ function Project() {
           </a>
           <h2>Financial App</h2>
           <p>A Python-based banking simulation that applies OOP principles and file I/O to manage accounts and transactions.</p>
+          <div className="project-tech">
+            <span className="tech-tag">Python</span>
+            <span className="tech-tag">OOP</span>
+            <span className="tech-tag">File I/O</span>
+          </div>
         </div>
 
         <div className="project">
@@ -39,6 +51,12 @@ function Project() {
           </a>
           <h2>TeachTeam App</h2>
           <p>A web platform that supports teacher-student collaboration. Developed with React, Node.js, and MongoDB.</p>
+          <div className="project-tech">
+            <span className="tech-tag">React</span>
+            <span className="tech-tag">Node.js</span>
+            <span className="tech-tag">MongoDB</span>
+            <span className="tech-tag">JavaScript</span>
+          </div>
         </div>
 
         <div className="project">
@@ -47,6 +65,13 @@ function Project() {
           </a>
           <h2>Full-Stack API Example</h2>
           <p>Demonstrates front-end and back-end integration using React and Express, including external API calls and JSON parsing.</p>
+          <div className="project-tech">
+            <span className="tech-tag">React</span>
+            <span className="tech-tag">Express.js</span>
+            <span className="tech-tag">JavaScript</span>
+            <span className="tech-tag">REST API</span>
+            <span className="tech-tag">JSON</span>
+          </div>
         </div>
 
         <div className="project">
@@ -55,6 +80,12 @@ function Project() {
           </a>
           <h2>Operating Systems Assignment</h2>
           <p>Focuses on multithreading, semaphores, and synchronization. Implemented in C and submitted for university coursework.</p>
+          <div className="project-tech">
+            <span className="tech-tag">C</span>
+            <span className="tech-tag">Multithreading</span>
+            <span className="tech-tag">Semaphores</span>
+            <span className="tech-tag">POSIX</span>
+          </div>
         </div>
 
         <div className="project">
@@ -63,6 +94,12 @@ function Project() {
           </a>
           <h2>Discord Bot</h2>
           <p>Feature-rich bot developed in Python using discord.py. Includes AFK system, utility commands, and dictionary lookups.</p>
+          <div className="project-tech">
+            <span className="tech-tag">Python</span>
+            <span className="tech-tag">discord.py</span>
+            <span className="tech-tag">Async/Await</span>
+            <span className="tech-tag">APIs</span>
+          </div>
         </div>
 
         <div className="project">
@@ -71,6 +108,13 @@ function Project() {
           </a>
           <h2>Social Media Analyser</h2>
           <p>Developed a Java application with a JavaFX GUI that analyzes social media posts read from text files using NLP and sentiment analysis techniques. Integrated JDBC for database storage and retrieval of results, providing visual sentiment distribution insights within the interface.</p>
+          <div className="project-tech">
+            <span className="tech-tag">Java</span>
+            <span className="tech-tag">JavaFX</span>
+            <span className="tech-tag">JDBC</span>
+            <span className="tech-tag">NLP</span>
+            <span className="tech-tag">SQL</span>
+          </div>
         </div>
 
         <div className="project">
@@ -79,6 +123,12 @@ function Project() {
           </a>
           <h2>Algorithms & Analysis</h2>
           <p>Explores sorting algorithms, divide-and-conquer, and runtime benchmarking. Written in Python for a university course.</p>
+          <div className="project-tech">
+            <span className="tech-tag">Python</span>
+            <span className="tech-tag">Algorithms</span>
+            <span className="tech-tag">Data Structures</span>
+            <span className="tech-tag">Performance Analysis</span>
+          </div>
         </div>
       </div>
     </div>
