@@ -42,6 +42,8 @@ function Project() {
             <span className="tech-tag">Python</span>
             <span className="tech-tag">OOP</span>
             <span className="tech-tag">File I/O</span>
+            <span className="tech-tag">User Input</span>
+            <span className="tech-tag">Input Validation</span>
           </div>
         </div>
 
@@ -53,8 +55,11 @@ function Project() {
           <p>A web platform that supports teacher-student collaboration. Developed with React, Node.js, and MongoDB.</p>
           <div className="project-tech">
             <span className="tech-tag">React</span>
+            <span className="tech-tag">Typescript</span>
             <span className="tech-tag">Node.js</span>
-            <span className="tech-tag">MongoDB</span>
+            <span className="tech-tag">PHPMyAdmin DB</span>
+            <span className="tech-tag">RESTful API</span>
+            <span className="tech-tag">GraphQL</span>
             <span className="tech-tag">JavaScript</span>
           </div>
         </div>
@@ -85,6 +90,7 @@ function Project() {
             <span className="tech-tag">Multithreading</span>
             <span className="tech-tag">Semaphores</span>
             <span className="tech-tag">POSIX</span>
+            <span className="tech-tag">Synchronization</span>
           </div>
         </div>
 
@@ -99,6 +105,7 @@ function Project() {
             <span className="tech-tag">discord.py</span>
             <span className="tech-tag">Async/Await</span>
             <span className="tech-tag">APIs</span>
+            <span className="tech-tag">yt-dlp</span>
           </div>
         </div>
 
@@ -127,7 +134,8 @@ function Project() {
             <span className="tech-tag">Python</span>
             <span className="tech-tag">Algorithms</span>
             <span className="tech-tag">Data Structures</span>
-            <span className="tech-tag">Performance Analysis</span>
+            <span className="tech-tag">Empirical Analysis</span>
+            <span className="tech-tag">Big O Notation</span>
           </div>
         </div>
       </div>
