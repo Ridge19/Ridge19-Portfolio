@@ -1,0 +1,146 @@
+.about-container {
+  padding: 5% 10%;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 50px;
+    background: linear-gradient(135deg, #5000ca 0%, #7c4dff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  .about-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 50px;
+
+    .about-card {
+      align-items: center;
+      text-align: left;
+      padding: 30px;
+      border-radius: 12px;
+      background: rgba(138, 43, 226, 0.05);
+      border: 1px solid rgba(138, 43, 226, 0.2);
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: translateY(-5px);
+        background: rgba(138, 43, 226, 0.1);
+        border-color: rgba(138, 43, 226, 0.4);
+      }
+
+      .about-icon {
+        font-size: 4rem;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+        color: #7c4dff;
+        font-weight: 600;
+      }
+
+      p {
+        font-size: 1rem;
+        line-height: 1.6;
+        color: white;
+        opacity: 0.9;
+        margin: 0;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 5% 5%;
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+    }
+
+    .about-content {
+      grid-template-columns: 1fr;
+      grid-gap: 30px;
+
+      .about-card {
+        text-align: center;
+        padding: 25px;
+
+        .about-icon {
+          justify-content: center;
+          font-size: 3rem;
+        }
+
+        h2 {
+          font-size: 1.3rem;
+        }
+
+        p {
+          font-size: 0.9rem;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 5% 3%;
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    .about-content {
+      .about-card {
+        padding: 20px;
+
+        .about-icon {
+          font-size: 2.5rem;
+        }
+
+        h2 {
+          font-size: 1.2rem;
+        }
+
+        p {
+          font-size: 0.85rem;
+        }
+      }
+    }
+  }
+}
+
+// Light mode styles
+.light-mode {
+  .about-container {
+    .about-content {
+      .about-card {
+        background: rgba(138, 43, 226, 0.08);
+        border: 1px solid rgba(138, 43, 226, 0.25);
+
+        &:hover {
+          background: rgba(138, 43, 226, 0.15);
+          border-color: rgba(138, 43, 226, 0.5);
+        }
+
+        h2 {
+          color: #5000ca;
+        }
+
+        p {
+          color: #0d1116;
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+}
