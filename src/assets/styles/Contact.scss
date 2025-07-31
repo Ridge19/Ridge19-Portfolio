@@ -21,6 +21,50 @@
   fieldset {
     background-color: white;
   }
+
+  // Material-UI TextField styles for dark mode
+  .MuiTextField-root {
+    .MuiInputBase-root {
+      color: white !important;
+      
+      .MuiInputBase-input {
+        color: white !important;
+      }
+      
+      .MuiInputBase-input::placeholder {
+        color: rgba(255, 255, 255, 0.7) !important;
+        opacity: 1 !important;
+      }
+    }
+    
+    .MuiInputLabel-root {
+      color: rgba(255, 255, 255, 0.7) !important;
+      
+      &.Mui-focused {
+        color: #7c4dff !important;
+      }
+    }
+    
+    .MuiOutlinedInput-notchedOutline {
+      border-color: rgba(255, 255, 255, 0.3) !important;
+    }
+    
+    .MuiInputBase-root:hover .MuiOutlinedInput-notchedOutline {
+      border-color: rgba(255, 255, 255, 0.5) !important;
+    }
+    
+    .MuiInputBase-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+      border-color: #7c4dff !important;
+    }
+    
+    .MuiFormHelperText-root {
+      color: rgba(255, 255, 255, 0.7) !important;
+      
+      &.Mui-error {
+        color: #f44336 !important;
+      }
+    }
+  }
 }
 
 label {
@@ -45,4 +89,86 @@ form {
 .body-form {
   width: 100% !important;
   margin-bottom: 15px !important;
+}
+
+// Light mode styles for the contact form
+.light-mode {
+  .contact-form {
+    .MuiTextField-root {
+      .MuiInputBase-root {
+        color: #0d1116 !important;
+        
+        .MuiInputBase-input {
+          color: #0d1116 !important;
+        }
+        
+        .MuiInputBase-input::placeholder {
+          color: rgba(13, 17, 22, 0.6) !important;
+          opacity: 1 !important;
+        }
+      }
+      
+      .MuiInputLabel-root {
+        color: rgba(13, 17, 22, 0.6) !important;
+        
+        &.Mui-focused {
+          color: #5000ca !important;
+        }
+      }
+      
+      .MuiOutlinedInput-notchedOutline {
+        border-color: rgba(13, 17, 22, 0.3) !important;
+      }
+      
+      .MuiInputBase-root:hover .MuiOutlinedInput-notchedOutline {
+        border-color: rgba(13, 17, 22, 0.5) !important;
+      }
+      
+      .MuiInputBase-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+        border-color: #5000ca !important;
+      }
+      
+      .MuiFormHelperText-root {
+        color: rgba(13, 17, 22, 0.6) !important;
+        
+        &.Mui-error {
+          color: #d32f2f !important;
+        }
+      }
+    }
+  }
+
+  .alternative-contact .linkedin-contact {
+    h3 {
+      color: #0d1116 !important;
+    }
+    
+    p {
+      color: rgba(13, 17, 22, 0.8) !important;
+    }
+  }
+}
+
+// Alternative contact styles
+.alternative-contact {
+  margin-top: 20px;
+  text-align: center;
+
+  .linkedin-contact {
+    padding: 20px 0;
+
+    h3 {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      color: white;
+      font-weight: 600;
+    }
+
+    p {
+      font-size: 1rem;
+      margin-bottom: 20px;
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.5;
+    }
+  }
 }

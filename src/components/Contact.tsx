@@ -7,6 +7,8 @@ import SendIcon from '@mui/icons-material/Send';
 import TextField from '@mui/material/TextField';
 import Alert from '@mui/material/Alert';
 import Snackbar from '@mui/material/Snackbar';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import Divider from '@mui/material/Divider';
 
 function Contact() {
 
@@ -136,6 +138,53 @@ function Contact() {
               {loading ? 'Sending...' : 'Send'}
             </Button>
           </Box>
+          
+          {/* Alternative Contact Section */}
+          <div className="alternative-contact">
+            <Divider sx={{ 
+              margin: '40px 0 30px 0', 
+              borderColor: 'rgba(255, 255, 255, 0.2)',
+              '&::before, &::after': {
+                borderColor: 'rgba(255, 255, 255, 0.2)',
+              }
+            }}>
+              <span style={{ 
+                color: 'rgba(255, 255, 255, 0.7)', 
+                padding: '0 20px',
+                fontSize: '14px'
+              }}>
+                OR
+              </span>
+            </Divider>
+            
+            <div className="linkedin-contact">
+              <h3>Connect with me on LinkedIn</h3>
+              <p>Prefer professional networking? Let's connect on LinkedIn for opportunities and collaborations.</p>
+              
+              <Button
+                variant="outlined"
+                startIcon={<LinkedInIcon />}
+                href="https://www.linkedin.com/in/ridge-tagala2002/"
+                target="_blank"
+                rel="noopener noreferrer"
+                sx={{
+                  color: '#0077b5',
+                  borderColor: '#0077b5',
+                  '&:hover': {
+                    backgroundColor: '#0077b5',
+                    color: 'white',
+                    borderColor: '#0077b5',
+                  },
+                  textTransform: 'none',
+                  padding: '10px 20px',
+                  fontSize: '16px',
+                  fontWeight: '500',
+                }}
+              >
+                Connect on LinkedIn
+              </Button>
+            </div>
+          </div>
         </div>
       </div>
       
