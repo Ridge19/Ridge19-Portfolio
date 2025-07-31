@@ -1,10 +1,12 @@
 import React, { useRef, useState } from 'react';
 import '../assets/styles/Contact.scss';
-// import emailjs from '@emailjs/browser';
+import emailjs from '@emailjs/browser';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
 import TextField from '@mui/material/TextField';
+import Alert from '@mui/material/Alert';
+import Snackbar from '@mui/material/Snackbar';
 
 function Contact() {
 
@@ -16,6 +18,11 @@ function Contact() {
   const [emailError, setEmailError] = useState<boolean>(false);
   const [messageError, setMessageError] = useState<boolean>(false);
 
+  const [loading, setLoading] = useState<boolean>(false);
+  const [snackbarOpen, setSnackbarOpen] = useState<boolean>(false);
+  const [snackbarMessage, setSnackbarMessage] = useState<string>('');
+  const [snackbarSeverity, setSnackbarSeverity] = useState<'success' | 'error'>('success');
+
   const form = useRef();
 
   const sendEmail = (e: any) => {
@@ -25,28 +32,45 @@ function Contact() {
     setEmailError(email === '');
     setMessageError(message === '');
 
-    /* Uncomment below if you want to enable the emailJS */
+    if (name !== '' && email !== '' && message !== '') {
+      setLoading(true);
+      
+      var templateParams = {
+        name: name,
+        email: email,
+        message: message,
+        time: new Date().toLocaleString()
+      };
 
-    // if (name !== '' && email !== '' && message !== '') {
-    //   var templateParams = {
-    //     name: name,
-    //     email: email,
-    //     message: message
-    //   };
+      // EmailJS Configuration - Replace with your actual values or use environment variables
+      const SERVICE_ID = process.env.REACT_APP_EMAILJS_SERVICE_ID || 'YOUR_SERVICE_ID';
+      const TEMPLATE_ID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID || 'YOUR_TEMPLATE_ID';
+      const PUBLIC_KEY = process.env.REACT_APP_EMAILJS_PUBLIC_KEY || 'YOUR_PUBLIC_KEY';
 
-    //   console.log(templateParams);
-    //   emailjs.send('service_id', 'template_id', templateParams, 'api_key').then(
-    //     (response) => {
-    //       console.log('SUCCESS!', response.status, response.text);
-    //     },
-    //     (error) => {
-    //       console.log('FAILED...', error);
-    //     },
-    //   );
-    //   setName('');
-    //   setEmail('');
-    //   setMessage('');
-    // }
+      emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY).then(
+        (response) => {
+          console.log('SUCCESS!', response.status, response.text);
+          setSnackbarMessage('Message sent successfully! I\'ll get back to you soon.');
+          setSnackbarSeverity('success');
+          setSnackbarOpen(true);
+          setName('');
+          setEmail('');
+          setMessage('');
+        },
+        (error) => {
+          console.log('FAILED...', error);
+          setSnackbarMessage('Failed to send message. Please try again or contact me directly.');
+          setSnackbarSeverity('error');
+          setSnackbarOpen(true);
+        },
+      ).finally(() => {
+        setLoading(false);
+      });
+    }
+  };
+
+  const handleSnackbarClose = () => {
+    setSnackbarOpen(false);
   };
 
   return (
@@ -103,12 +127,32 @@ function Contact() {
               error={messageError}
               helperText={messageError ? "Please enter the message" : ""}
             />
-            <Button variant="contained" endIcon={<SendIcon />} onClick={sendEmail}>
-              Send
+            <Button 
+              variant="contained" 
+              endIcon={<SendIcon />} 
+              onClick={sendEmail}
+              disabled={loading}
+            >
+              {loading ? 'Sending...' : 'Send'}
             </Button>
           </Box>
         </div>
       </div>
+      
+      <Snackbar
+        open={snackbarOpen}
+        autoHideDuration={6000}
+        onClose={handleSnackbarClose}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+      >
+        <Alert 
+          onClose={handleSnackbarClose} 
+          severity={snackbarSeverity}
+          sx={{ width: '100%' }}
+        >
+          {snackbarMessage}
+        </Alert>
+      </Snackbar>
     </div>
   );
 }

@@ -11,8 +11,8 @@ function About() {
           <h2>Background</h2>
           <p>
                 I'm a driven Software Engineer currently studying Computer Science at RMIT University, with practical
-                experience across the financial technology space. My foundation in banking systems and software
-                development allows me to contribute meaningfully to real-world projects while continuing to grow
+                experience across the financial technology space. My foundation in software development and automation
+                allows me to contribute meaningfully to real-world projects while continuing to grow
                 through both study and hands-on industry experience.
           </p>
         </div>
