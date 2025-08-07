@@ -7,11 +7,9 @@ import SendIcon from '@mui/icons-material/Send';
 import TextField from '@mui/material/TextField';
 import Alert from '@mui/material/Alert';
 import Snackbar from '@mui/material/Snackbar';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import Divider from '@mui/material/Divider';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 function Contact() {
-
   const [name, setName] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [message, setMessage] = useState<string>('');
@@ -26,6 +24,52 @@ function Contact() {
   const [snackbarSeverity, setSnackbarSeverity] = useState<'success' | 'error'>('success');
 
   const form = useRef();
+
+  // Check if we're in light mode
+  const isLightMode = document.querySelector('.main-container')?.classList.contains('light-mode');
+
+  // Create theme based on current mode
+  const theme = createTheme({
+    palette: {
+      mode: isLightMode ? 'light' : 'dark',
+      primary: {
+        main: '#7c4dff',
+      },
+    },
+  });
+
+  // Dynamic styles based on theme
+  const getFieldStyles = () => ({
+    '& .MuiInputBase-input': {
+      color: isLightMode ? '#0d1116' : 'white',
+      fontSize: '16px',
+    },
+    '& .MuiInputLabel-root': {
+      color: isLightMode ? 'rgba(13, 17, 22, 0.6)' : 'rgba(255, 255, 255, 0.7)',
+      '&.Mui-focused': {
+        color: '#7c4dff',
+      },
+    },
+    '& .MuiOutlinedInput-root': {
+      '& fieldset': {
+        borderColor: 'rgba(124, 77, 255, 0.3)',
+        borderWidth: '2px',
+      },
+      '&:hover fieldset': {
+        borderColor: 'rgba(124, 77, 255, 0.6)',
+      },
+      '&.Mui-focused fieldset': {
+        borderColor: '#7c4dff',
+        borderWidth: '2px',
+      },
+    },
+    '& .MuiFormHelperText-root': {
+      color: isLightMode ? 'rgba(13, 17, 22, 0.6)' : 'rgba(255, 255, 255, 0.7)',
+      '&.Mui-error': {
+        color: '#ff6b6b',
+      },
+    },
+  });
 
   const sendEmail = (e: any) => {
     e.preventDefault();
@@ -76,11 +120,12 @@ function Contact() {
   };
 
   return (
-    <div id="contact">
-      <div className="items-container">
-        <div className="contact_wrapper">
-          <h1>Contact Me</h1>
-          <p>Got a project waiting to be realized? Let's collaborate and make it happen!</p>
+    <ThemeProvider theme={theme}>
+      <div id="contact">
+        <div className="items-container">
+          <div className="contact_wrapper">
+            <h1>Contact Me</h1>
+            <p>Got a project waiting to be realized? Let's collaborate and make it happen!</p>
           <Box
             ref={form}
             component="form"
@@ -100,6 +145,7 @@ function Contact() {
                 }}
                 error={nameError}
                 helperText={nameError ? "Please enter your name" : ""}
+                sx={getFieldStyles()}
               />
               <TextField
                 required
@@ -112,6 +158,7 @@ function Contact() {
                 }}
                 error={emailError}
                 helperText={emailError ? "Please enter your email or phone number" : ""}
+                sx={getFieldStyles()}
               />
             </div>
             <TextField
@@ -128,63 +175,37 @@ function Contact() {
               }}
               error={messageError}
               helperText={messageError ? "Please enter the message" : ""}
+              sx={getFieldStyles()}
             />
             <Button 
               variant="contained" 
               endIcon={<SendIcon />} 
               onClick={sendEmail}
               disabled={loading}
+              sx={{
+                background: 'linear-gradient(135deg, #5000ca 0%, #7c4dff 100%)',
+                color: 'white',
+                padding: '12px 30px',
+                fontSize: '16px',
+                fontWeight: '600',
+                borderRadius: '8px',
+                textTransform: 'none',
+                boxShadow: '0 4px 15px rgba(124, 77, 255, 0.3)',
+                '&:hover': {
+                  background: 'linear-gradient(135deg, #4000b8 0%, #6c3ce8 100%)',
+                  boxShadow: '0 6px 20px rgba(124, 77, 255, 0.4)',
+                  transform: 'translateY(-2px)',
+                },
+                '&:disabled': {
+                  background: 'rgba(124, 77, 255, 0.3)',
+                  color: 'rgba(255, 255, 255, 0.5)',
+                },
+                transition: 'all 0.3s ease',
+              }}
             >
               {loading ? 'Sending...' : 'Send'}
             </Button>
           </Box>
-          
-          {/* Alternative Contact Section */}
-          <div className="alternative-contact">
-            <Divider sx={{ 
-              margin: '40px 0 30px 0', 
-              borderColor: 'rgba(255, 255, 255, 0.2)',
-              '&::before, &::after': {
-                borderColor: 'rgba(255, 255, 255, 0.2)',
-              }
-            }}>
-              <span style={{ 
-                color: 'rgba(255, 255, 255, 0.7)', 
-                padding: '0 20px',
-                fontSize: '14px'
-              }}>
-                OR
-              </span>
-            </Divider>
-            
-            <div className="linkedin-contact">
-              <h3>Connect with me on LinkedIn</h3>
-              <p>Prefer professional networking? Let's connect on LinkedIn for opportunities and collaborations.</p>
-              
-              <Button
-                variant="outlined"
-                startIcon={<LinkedInIcon />}
-                href="https://www.linkedin.com/in/ridge-tagala2002/"
-                target="_blank"
-                rel="noopener noreferrer"
-                sx={{
-                  color: '#0077b5',
-                  borderColor: '#0077b5',
-                  '&:hover': {
-                    backgroundColor: '#0077b5',
-                    color: 'white',
-                    borderColor: '#0077b5',
-                  },
-                  textTransform: 'none',
-                  padding: '10px 20px',
-                  fontSize: '16px',
-                  fontWeight: '500',
-                }}
-              >
-                Connect on LinkedIn
-              </Button>
-            </div>
-          </div>
         </div>
       </div>
       
@@ -203,6 +224,7 @@ function Contact() {
         </Alert>
       </Snackbar>
     </div>
+    </ThemeProvider>
   );
 }
 
