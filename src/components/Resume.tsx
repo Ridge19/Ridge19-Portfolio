@@ -45,8 +45,8 @@ function Resume() {
       // Add a small delay to deter bots
       setTimeout(() => {
         const link = document.createElement('a');
-        link.href = '/Ridge_Tagala_Resume.pdf';
-        link.download = 'Ridge_Tagala_Resume.pdf';
+        link.href = '/Ridge_Tagala_Software_Engineer.pdf';
+        link.download = 'Ridge_Tagala_Software_Engineer.pdf';
         link.target = '_blank';
         document.body.appendChild(link);
         link.click();
