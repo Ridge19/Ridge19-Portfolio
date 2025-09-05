@@ -58,6 +58,20 @@
     transform: scale(1.05);
 }
 
+.project-type-tag {
+  background: none;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 2px solid #7c4dff;
+  margin-right: 8px;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
 @media screen {
     @media (max-width: 700px) {
         .projects-container {
@@ -78,7 +92,12 @@
 
 // Light mode styling for tech tags
 .light-mode {
-    .project-tech {
-        border-top: 1px solid rgba(0, 0, 0, 0.1);
-    }
+  .project-type-tag {
+    color: #0d1116;
+    border-color: #7c4dff;
+    background: none;
+  }
+  .project-tech {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
 }
