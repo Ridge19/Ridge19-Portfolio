@@ -8,6 +8,7 @@ import mock16 from '../assets/images/mock16.png'; // Discord Bot
 import mock17 from '../assets/images/mock17.png'; // Social Media Analyser
 import mock18 from '../assets/images/mock18.png'; // Algorithms
 import mock19 from '../assets/images/mock19.png'; // GUI For Rover Team
+import mock20 from '../assets/images/mock20.jpg'; // pacman AI 2025 project
 
 import '../assets/styles/Project.scss';
 
@@ -62,6 +63,24 @@ function Project() {
             <span className="tech-tag">Python</span>
             <span className="tech-tag">WebRTC API</span>
             <span className="tech-tag">Networking</span>
+          </div>
+        </div>
+        <div className="project">
+          <a href="https://github.com/Ridge19/AI25-p1-search-Ridge19" target="_blank" rel="noreferrer">
+            <img src={mock20} className="zoom" alt="Pacman AI Thumbnail" width="100%" />
+          </a>
+          <h2>Pacman Project</h2>
+          <p>A project for the Class Artifical Intelligence at RMIT University, Semester 1, 2025. Focuses popular search algorithms and integrates it with the Pacman game.</p>
+          <div className="project-tech">
+            <span className="project-type-tag">University Project</span>
+            <span className="tech-tag">Python</span>
+            <span className="tech-tag">Artificial Intelligence</span>
+            <span className="tech-tag">Search Algorithms</span>
+            <span className="tech-tag">DFS</span>
+            <span className="tech-tag">BFS</span>
+            <span className="tech-tag">A*</span>
+            <span className="tech-tag">Intelligent Agents</span>
+            <span className="tech-tag">Pacman Game</span>
           </div>
         </div>
         {/* TeachTeam App - University */}

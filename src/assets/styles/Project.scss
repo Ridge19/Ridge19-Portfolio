@@ -35,6 +35,9 @@
     letter-spacing: 0.5px;
     transition: all 0.3s ease;
     box-shadow: 0 2px 8px rgba(80, 0, 202, 0.3);
+    width: auto;
+    min-width: 0;
+    display: inline-block;
 
     &:hover {
         transform: translateY(-2px);
