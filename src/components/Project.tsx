@@ -9,6 +9,7 @@ import mock17 from '../assets/images/mock17.png'; // Social Media Analyser
 import mock18 from '../assets/images/mock18.png'; // Algorithms
 import mock19 from '../assets/images/mock19.png'; // GUI For Rover Team
 import mock20 from '../assets/images/mock20.jpg'; // pacman AI 2025 project
+import mock21 from "../assets/images/mock21.png"; // Minecraft C++ project
 
 import '../assets/styles/Project.scss';
 
@@ -65,6 +66,7 @@ function Project() {
             <span className="tech-tag">Networking</span>
           </div>
         </div>
+        {/* Pacman Project - University */}
         <div className="project">
           <a href="https://github.com/Ridge19/AI25-p1-search-Ridge19" target="_blank" rel="noreferrer">
             <img src={mock20} className="zoom" alt="Pacman AI Thumbnail" width="100%" />
@@ -99,6 +101,25 @@ function Project() {
             <span className="tech-tag">RESTful API</span>
             <span className="tech-tag">GraphQL</span>
             <span className="tech-tag">JavaScript</span>
+          </div>
+        </div>
+        {/* Minecraft C++ Project (mcpp) - University */}
+        <div className="project">
+          <a href="https://github.com/Ridge19/Minecraft-Cpp" target="_blank" rel="noreferrer">
+            <img src={mock21} className="zoom" alt="Minecraft C++ Thumbnail" width="100%" />
+          </a>
+          <h2>Minecraft C++ Project</h2>
+          <p>A project for Programming Studio 2 at RMIT University. uses the mcpp (minecraft C++) Library to create a Maze in Minecraft, using recursive division</p>
+          <div className="project-tech">
+            <span className="project-type-tag">University Project</span>
+            <span className="tech-tag">C++</span>
+            <span className="tech-tag">mcpp</span>
+            <span className="tech-tag">Recursion</span>
+            <span className="tech-tag">Algorithms</span>
+            <span className="tech-tag">Maze Generation</span>
+            <span className="tech-tag">Minecraft Commands</span>
+            <span className="tech-tag">Game Mechanics</span>
+            <span className="tech-tag">Event Handling</span>
           </div>
         </div>
         {/* Algorithms & Analysis - University */}
