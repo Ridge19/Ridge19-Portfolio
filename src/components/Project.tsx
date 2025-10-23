@@ -12,6 +12,7 @@ import mock20 from '../assets/images/mock20.jpg'; // pacman AI 2025 project
 import mock21 from "../assets/images/mock21.png"; // Minecraft C++ project
 
 import '../assets/styles/Project.scss';
+import HomeLab from './HomeLab';
 
 function Project() {
   return (
@@ -203,6 +204,7 @@ function Project() {
           </div>
         </div>
       </div>
+      <HomeLab />
     </div>
   );
 }

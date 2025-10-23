@@ -3,6 +3,8 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
@@ -17,7 +19,8 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 
 const drawerWidth = 240;
-const navItems = [['About', 'about'], ['Expertise', 'expertise'], ['History', 'history'], ['Projects', 'projects'], ['Resume', 'resume'], ['Contact', 'contact']];
+const navItems = [['About', 'about'], ['Expertise', 'expertise'], ['Projects', 'projects'], ['History', 'history'], ['Resume', 'resume'], ['Contact', 'contact']];
+const projectsDropdown = [['All Projects', 'projects'], ['Home Lab', 'homelab']];
 
 function Navigation({parentToChild, modeChange}: any) {
 
@@ -25,6 +28,8 @@ function Navigation({parentToChild, modeChange}: any) {
 
   const [mobileOpen, setMobileOpen] = useState<boolean>(false);
   const [scrolled, setScrolled] = useState<boolean>(false);
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const projectsMenuOpen = Boolean(anchorEl);
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
@@ -48,13 +53,27 @@ function Navigation({parentToChild, modeChange}: any) {
 
   const scrollToSection = (section: string) => {
     console.log(section)
-    const expertiseElement = document.getElementById(section);
-    if (expertiseElement) {
-      expertiseElement.scrollIntoView({ behavior: 'smooth' });
-      console.log('Scrolling to:', expertiseElement);  // Debugging: Ensure the element is found
+    const target = document.getElementById(section);
+    if (target) {
+      // compute offset for fixed navbar
+      const navbar = document.getElementById('navigation');
+      const navHeight = navbar ? navbar.clientHeight : 0;
+      const gap = 12; // small gap so header isn't flush against navbar
+      const y = target.getBoundingClientRect().top + window.scrollY - (navHeight + gap);
+      window.scrollTo({ top: y, behavior: 'smooth' });
+      console.log('Scrolling to:', section, 'offset:', navHeight + gap);
     } else {
-      console.error('Element with id "expertise" not found');  // Debugging: Log error if element is not found
+      console.error(`Element with id "${section}" not found`);
     }
+  };
+
+  const handleProjectsClick = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleProjectsClose = (section?: string) => {
+    setAnchorEl(null);
+    if (section) scrollToSection(section);
   };
 
   const drawer = (
@@ -69,6 +88,11 @@ function Navigation({parentToChild, modeChange}: any) {
             </ListItemButton>
           </ListItem>
         ))}
+        <ListItem disablePadding>
+          <ListItemButton sx={{ textAlign: 'center' }} onClick={() => scrollToSection('homelab')}>
+            <ListItemText primary={'Home Lab'} />
+          </ListItemButton>
+        </ListItem>
       </List>
     </Box>
   );
@@ -92,13 +116,39 @@ function Navigation({parentToChild, modeChange}: any) {
           ) : (
             <DarkModeIcon onClick={() => modeChange()}/>
           )}
-          <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-            {navItems.map((item) => (
-              <Button key={item[0]} onClick={() => scrollToSection(item[1])} sx={{ color: '#fff' }}>
-                {item[0]}
-              </Button>
-            ))}
-          </Box>
+              <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+                {navItems.map((item) => (
+                  item[0] === 'Projects' ? (
+                    <React.Fragment key="projects">
+                      <Button
+                        onClick={handleProjectsClick}
+                        sx={{ color: '#fff' }}
+                        aria-controls={projectsMenuOpen ? 'projects-menu' : undefined}
+                        aria-haspopup="true"
+                        aria-expanded={projectsMenuOpen ? 'true' : undefined}
+                      >
+                        Projects
+                      </Button>
+                      <Menu
+                        id="projects-menu"
+                        anchorEl={anchorEl}
+                        open={projectsMenuOpen}
+                        onClose={() => handleProjectsClose()}
+                        anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
+                        transformOrigin={{ vertical: 'top', horizontal: 'left' }}
+                      >
+                        {projectsDropdown.map((p) => (
+                          <MenuItem key={p[0]} onClick={() => handleProjectsClose(p[1])}>{p[0]}</MenuItem>
+                        ))}
+                      </Menu>
+                    </React.Fragment>
+                  ) : (
+                    <Button key={item[0]} onClick={() => scrollToSection(item[1])} sx={{ color: '#fff' }}>
+                      {item[0]}
+                    </Button>
+                  )
+                ))}
+              </Box>
         </Toolbar>
       </AppBar>
       <nav>
