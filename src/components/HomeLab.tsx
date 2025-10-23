@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import rpiMonitor from '../assets/images/homelab/RPI-Monitor.png';
 import portainer from '../assets/images/homelab/portainer.png';
 import pihole from '../assets/images/homelab/Pi-Hole.png';
+import architecture from '../assets/images/homelab/architecture.png';
 
 const images = [
   { src: rpiMonitor, alt: 'Raspberry Pi monitor' },
@@ -51,7 +52,6 @@ const HomeLab: React.FC = () => {
   return (
     <div id="homelab" className="home-lab">
       <h2>Home Lab</h2>
-      <p>Raspberry Pi running multiple services (all dockerised) and accessible remotely via Tailscale.</p>
       <div className="lab-tech">
         <span className="project-type-tag">Home Lab</span>
         <span className="tech-tag">Raspberry Pi</span>
@@ -60,6 +60,9 @@ const HomeLab: React.FC = () => {
         <span className="tech-tag">Nginx Proxy Manager</span>
         <span className="tech-tag">Tailscale</span>
         <span className="tech-tag">Docker</span>
+        <span className="tech-tag">Portainer</span>
+        <span className="tech-tag">Cockpit</span>
+        <span className="tech-tag">RPi-Monitor</span>
       </div>
 
       <div className="home-lab-gallery">
@@ -68,6 +71,14 @@ const HomeLab: React.FC = () => {
           <div className="gallery-count">{images.length} images</div>
         </div>
       </div>
+
+    <p>
+        <br/>
+        What began as a simple NAS project quickly grew into a full-fledged home lab. 
+        It now runs in a Dockerised environment hosting a DNS filter, proxy manager, 
+        Samba NAS, Portainer, Cockpit, and RPi-Monitor — all accessible securely 
+        through a Tailscale VPN and a unified dashboard.
+    </p>
 
       {currentIndex !== null && (
         <div className="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" onClick={close}>
@@ -80,6 +91,10 @@ const HomeLab: React.FC = () => {
           <button className="lightbox-next" onClick={(e) => { e.stopPropagation(); showNext(); }} aria-label="Next image">›</button>
         </div>
       )}
+      <div className="home-lab-architecture">
+        <h3>Architecture Diagram</h3>
+        <img src={architecture} alt="Home Lab Architecture Diagram" />
+      </div>
     </div>
   );
 };
