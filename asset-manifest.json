@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.35d97cd4.css",
-    "main.js": "/static/js/main.934b8d7c.js",
+    "main.css": "/static/css/main.b47b3017.css",
+    "main.js": "/static/js/main.3c466143.js",
     "static/js/206.8171c407.chunk.js": "/static/js/206.8171c407.chunk.js",
     "static/media/bg-light.png": "/static/media/bg-light.bac0efb485244a522981.png",
     "static/media/mock11.png": "/static/media/mock11.5f8d4028dc2a0b213ee8.png",
@@ -9,6 +9,9 @@
     "static/media/bg-dark.png": "/static/media/bg-dark.f420c6b8458af72de935.png",
     "static/media/mock13.png": "/static/media/mock13.f7b2766a2d1fc11b9da2.png",
     "static/media/mock15.png": "/static/media/mock15.52fdd4a40228f68a492d.png",
+    "static/media/Pi-Hole.png": "/static/media/Pi-Hole.dc01d4e634f15b1d867d.png",
+    "static/media/portainer.png": "/static/media/portainer.461a31060fb2c9c67a34.png",
+    "static/media/RPI-Monitor.png": "/static/media/RPI-Monitor.69e2bd37ff142c4a7829.png",
     "static/media/mock14.png": "/static/media/mock14.7960c45509434ee8bfce.png",
     "static/media/mock18.png": "/static/media/mock18.fbd39401f84666121525.png",
     "static/media/mock16.png": "/static/media/mock16.bb1893cfece7bc9e5b4c.png",
@@ -17,7 +20,7 @@
     "index.html": "/index.html"
   },
   "entrypoints": [
-    "static/css/main.35d97cd4.css",
-    "static/js/main.934b8d7c.js"
+    "static/css/main.b47b3017.css",
+    "static/js/main.3c466143.js"
   ]
 }
