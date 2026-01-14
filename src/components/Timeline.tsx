@@ -20,6 +20,23 @@ function Timeline() {
             iconStyle={{ background: '#5000ca', color: 'rgb(39, 40, 34)' }}
             icon={<FontAwesomeIcon icon={faBriefcase} />}
           >
+            <h3 className="vertical-timeline-element-title">RMIT Student Connect Concierge</h3>
+            <h4 className="vertical-timeline-element-subtitle">RMIT University | Melbourne, VIC</h4>
+            <p>
+                  Assisting students with enquiries about university services, enrolment, and campus resources. 
+                  Providing frontline support both in person and online while ensuring a positive and inclusive 
+                  experience for all students. Collaborating with staff to streamline processes and enhance 
+                  student engagement within the RMIT community.
+            </p>
+          </VerticalTimelineElement>
+          <VerticalTimelineElement
+            className="vertical-timeline-element--work"
+            contentStyle={{ background: 'white', color: 'rgb(39, 40, 34)' }}
+            contentArrowStyle={{ borderRight: '7px solid  white' }}
+            date="July 2025 - Present"
+            iconStyle={{ background: '#5000ca', color: 'rgb(39, 40, 34)' }}
+            icon={<FontAwesomeIcon icon={faBriefcase} />}
+          >
             <h3 className="vertical-timeline-element-title">Software Engineer</h3>
             <h4 className="vertical-timeline-element-subtitle">RMIT Rover Team | Melbourne, VIC</h4>
             <p>
